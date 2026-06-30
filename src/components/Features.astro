@@ -112,7 +112,7 @@ const stats = [
               </span>
             </div>
 
-            <svg viewBox="0 0 320 120" class="mt-4 w-full" fill="none" preserveAspectRatio="none">
+            <svg viewBox="0 0 320 120" class="mt-4 w-full overflow-visible" fill="none" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stop-color="#2563EB" stop-opacity="0.45" />
@@ -120,18 +120,18 @@ const stats = [
                 </linearGradient>
               </defs>
               <path
-                d="M0 95 C40 80 60 100 100 78 C140 56 170 70 210 48 C250 28 280 40 320 22 L320 120 L0 120 Z"
+                d="M0 95 C40 80 60 100 100 78 C140 56 170 70 210 48 C246 30 276 40 308 26 L308 120 L0 120 Z"
                 fill="url(#area)"
               />
               <path
-                d="M0 95 C40 80 60 100 100 78 C140 56 170 70 210 48 C250 28 280 40 320 22"
+                d="M0 95 C40 80 60 100 100 78 C140 56 170 70 210 48 C246 30 276 40 308 26"
                 stroke="#60A5FA"
                 stroke-width="2.5"
                 stroke-linecap="round"
                 class="transition-[stroke-width] group-hover:[stroke-width:3.5]"
               />
-              <circle cx="320" cy="22" r="9" fill="#2563EB" fill-opacity="0.25" class="animate-ping origin-center" style="transform-box: fill-box;" />
-              <circle cx="320" cy="22" r="4" fill="#60A5FA" />
+              <circle cx="308" cy="26" r="8" fill="#60A5FA" fill-opacity="0.25" class="animate-pulse" />
+              <circle cx="308" cy="26" r="4" fill="#60A5FA" />
             </svg>
 
             <div class="mt-3 flex justify-between text-[11px] text-white/40">
@@ -143,7 +143,7 @@ const stats = [
           <div class="grid grid-cols-2 gap-3">
             {
               stats.map((s) => (
-                <div class="cursor-default rounded-xl bg-white/[0.04] p-4 transition-all hover:bg-white/[0.07] hover:ring-1 hover:ring-[#2563EB]/40">
+                <div class="dcard cursor-default p-4">
                   <div class="text-[12px] text-white/55">{s.label}</div>
                   <div class="mt-1 flex items-baseline gap-2">
                     <span class="text-[20px] font-medium">{s.value}</span>
@@ -158,3 +158,18 @@ const stats = [
     </div>
   </div>
 </section>
+
+<style>
+  /* Лёгкое стекло для карточек дашборда (без backdrop-filter — дёшево) */
+  .dcard {
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .dcard:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(96, 165, 250, 0.45);
+  }
+</style>
