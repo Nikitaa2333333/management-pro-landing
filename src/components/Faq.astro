@@ -1,0 +1,31 @@
+---
+import content from "../../content.json";
+const faq = content.faq;
+---
+
+<section class="px-4 py-16 md:px-6 md:py-24">
+  <div class="mx-auto max-w-[var(--spacing-container)]">
+    <p class="text-center text-sm tracking-wide text-n80 uppercase">FAQ</p>
+    <h2 class="mt-3 text-center text-[24px] leading-[30px] font-medium md:text-h2">
+      Частые вопросы
+    </h2>
+    <p class="mt-3 text-center text-base text-n80">Отвечаем на часто задаваемые вопросы.</p>
+
+    <div class="mx-auto mt-12 max-w-[1040px] space-y-4">
+      {
+        faq.map((item) => (
+          <details class="group rounded-[12px] border border-n95 px-6 py-5 [&[open]]:bg-n97">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6">
+              <span class="text-base font-medium">{item.q}</span>
+              <span class="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--radius-btn)] bg-ink text-paper">
+                <span class="absolute h-[2px] w-3.5 bg-current" />
+                <span class="absolute h-3.5 w-[2px] bg-current transition-transform group-open:rotate-90 group-open:opacity-0" />
+              </span>
+            </summary>
+            <p class="mt-4 max-w-[860px] text-base text-n80">{item.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

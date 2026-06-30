@@ -1,0 +1,44 @@
+---
+import content from "../../content.json";
+const c = content.final_cta;
+const cta = c.cta.replace(/[«»]/g, "").trim();
+---
+
+<section id="cta" class="px-4 py-16 md:px-6 md:py-24">
+  <div
+    class="relative mx-auto max-w-[var(--spacing-container)] overflow-hidden rounded-[12px] bg-ink px-6 py-24 text-center text-paper md:px-12 md:py-32"
+  >
+    <!-- Светящийся обод сферы -->
+    <div
+      class="pointer-events-none absolute top-[-75%] left-1/2 aspect-square w-[150%] max-w-[1150px] -translate-x-1/2 rounded-full opacity-90 blur-[40px]"
+      style="background: radial-gradient(circle, transparent 42%, rgba(96,165,250,0.55) 47%, rgba(37,99,235,0.95) 50%, rgba(37,99,235,0.25) 54%, transparent 60%);"
+      aria-hidden="true"
+    >
+    </div>
+    <!-- Мягкое внутреннее свечение под ободом -->
+    <div
+      class="pointer-events-none absolute top-[-30%] left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full opacity-50 blur-[80px]"
+      style="background: radial-gradient(circle, rgba(37,99,235,0.6) 0%, transparent 70%);"
+      aria-hidden="true"
+    >
+    </div>
+
+    <!-- Контент -->
+    <div class="relative z-10">
+      <span class="text-sm tracking-wide text-white/55 uppercase">{c.label}</span>
+      <h2 class="mx-auto mt-6 max-w-[720px] text-[26px] leading-[32px] font-medium md:text-display">
+        {c.headline}
+      </h2>
+      <p class="mx-auto mt-5 max-w-[640px] text-base text-white/70">{c.text}</p>
+
+      <a
+        href="#Контакты"
+        class="mt-9 inline-flex h-[46px] items-center justify-center rounded-[var(--radius-btn)] bg-paper px-6 text-base text-ink transition-opacity hover:opacity-90"
+      >
+        {cta}
+      </a>
+
+      <p class="mt-5 text-sm text-white/45">{c.note}</p>
+    </div>
+  </div>
+</section>

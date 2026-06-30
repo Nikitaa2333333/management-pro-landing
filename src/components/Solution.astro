@@ -1,0 +1,40 @@
+---
+import content from "../../content.json";
+const s = content.solution;
+const cards = content.value_cards;
+---
+
+<section id="Как работает" class="px-4 py-16 md:px-6 md:py-24">
+  <div class="mx-auto max-w-[var(--spacing-container)]">
+    <!-- Метка -->
+    <span class="text-sm tracking-wide text-n80 uppercase">{s.label}</span>
+
+    <!-- Двухтоновый заголовок: основная мысль чёрным, продолжение серым -->
+    <h2 class="mt-6 max-w-[1000px] text-[24px] leading-[30px] font-medium md:text-h2">
+      <span class="text-ink">{s.text[0]}</span>{" "}
+      <span class="text-n80">{s.text[1]}</span>
+    </h2>
+
+    <!-- Три карточки ценности -->
+    <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 border-t border-n95 pt-12 md:grid-cols-3">
+      {
+        cards.map((c) => (
+          <div>
+            <div class="mb-6 text-ink" aria-hidden="true">
+              <svg width="56" height="56" viewBox="0 0 56 56" fill="currentColor">
+                {Array.from({ length: 36 }).map((_, i) => {
+                  const col = i % 6;
+                  const row = Math.floor(i / 6);
+                  const on = (col + row) % 2 === 0 || col === row;
+                  return on ? <circle cx={6 + col * 9} cy={6 + row * 9} r="1.6" /> : null;
+                })}
+              </svg>
+            </div>
+            <h3 class="text-base font-medium text-ink">{c.title}</h3>
+            <p class="mt-2 text-base text-n80">{c.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

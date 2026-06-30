@@ -1,0 +1,23 @@
+---
+import content from "../../content.json";
+const f = content.footer;
+---
+
+<footer id="Контакты" class="px-4 pb-16 md:px-6">
+  <div class="mx-auto max-w-[var(--spacing-container)] border-t border-n95 pt-12">
+    <div class="flex items-center gap-2 font-medium">
+      <span class="inline-flex h-6 w-6 items-center justify-center rounded-[4px] bg-ink text-paper" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="text-[18px]">{content.brand}</span>
+    </div>
+
+    <div class="mt-6 space-y-1.5 text-base text-n80">
+      <p>{f.line1}</p>
+      <p>{f.line2}</p>
+      <p>{f.line3}</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* ============================================================
+   МЕНЕДЖМЕНТ.PRO — design tokens (see DESIGN.md)
+   Tailwind v4 theme: each var becomes a utility class.
+   ============================================================ */
+@theme {
+  /* Fonts */
+  --font-display: "SF Pro Display", system-ui, -apple-system, sans-serif;
+
+  /* Colors — strict monochrome */
+  --color-ink: #000000;          /* primary text / CTA */
+  --color-paper: #ffffff;        /* surface / bg */
+  --color-n80: #a6a6a6;          /* secondary text, placeholders */
+  --color-n90: #e6e6e6;          /* standard borders */
+  --color-n95: #f2f2f2;          /* light borders, dividers */
+  --color-n97: #fafafa;          /* hover surfaces */
+  --color-ink-hover: #1a1a1a;    /* button hover */
+  --color-ink-active: #0d0d0d;   /* button active */
+
+  /* Typography scale (size + line-height) */
+  --text-display: 40px;
+  --text-display--line-height: 44px;
+  --text-display--font-weight: 500;
+  --text-h2: 30px;
+  --text-h2--line-height: 34.5px;
+  --text-h2--font-weight: 500;
+  --text-base: 16px;
+  --text-base--line-height: 22.4px;
+  --text-sm: 14px;
+  --text-sm--line-height: 19.6px;
+  --text-caption: 12px;
+  --text-caption--line-height: 16.8px;
+
+  /* Radius */
+  --radius-btn: 6px;
+
+  /* Container */
+  --spacing-container: 1200px;
+}
+
+html {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+}

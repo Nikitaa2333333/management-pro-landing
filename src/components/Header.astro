@@ -1,0 +1,42 @@
+---
+import content from "../../content.json";
+const nav = content.nav;            // ["Как работает","Кейсы","Методика","Блог","Контакты"]
+const main = nav.slice(0, -1);      // центр
+const last = nav[nav.length - 1];   // правый край ("Контакты")
+---
+
+<header class="sticky top-0 z-50 w-full px-4 pt-4 md:px-6">
+  <div class="mx-auto flex h-[68px] max-w-[var(--spacing-container)] items-center justify-between rounded-[12px] border border-white/40 bg-white/60 px-6 shadow-[0_2px_16px_rgba(0,0,0,0.04)] backdrop-blur-xl backdrop-saturate-150">
+    <!-- Лого -->
+    <a href="/" class="flex items-center gap-2 font-medium">
+      <span
+        class="inline-flex h-6 w-6 items-center justify-center rounded-[4px] bg-ink text-paper"
+        aria-hidden="true"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="text-[18px]">{content.brand}</span>
+    </a>
+
+    <!-- Навигация (центр) -->
+    <nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+      {
+        main.map((item) => (
+          <a
+            href={"#" + item}
+            class="text-base text-ink/90 transition-opacity hover:opacity-70"
+          >
+            {item}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Контакты (право) -->
+    <a href={"#" + last} class="hidden text-base transition-opacity hover:opacity-70 md:block">
+      {last}
+    </a>
+  </div>
+</header>
