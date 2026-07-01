@@ -160,16 +160,18 @@ const stats = [
 </section>
 
 <style>
-  /* Лёгкое стекло для карточек дашборда (без backdrop-filter — дёшево) */
+  /* Стекло как в hero (.glass): светлее фон, заметная кромка, верхний блик */
   .dcard {
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
     transition: background 0.2s ease, border-color 0.2s ease;
   }
   .dcard:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(96, 165, 250, 0.45);
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(96, 165, 250, 0.5);
   }
 </style>

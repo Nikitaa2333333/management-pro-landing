@@ -10,14 +10,14 @@ const cta = c.cta.replace(/[«»]/g, "").trim();
   >
     <!-- Светящийся обод сферы -->
     <div
-      class="pointer-events-none absolute top-[-75%] left-1/2 aspect-square w-[150%] max-w-[1150px] -translate-x-1/2 rounded-full opacity-90 blur-[40px]"
+      class="cta-ring pointer-events-none absolute top-[-75%] left-1/2 aspect-square w-[150%] max-w-[1150px] rounded-full blur-[40px]"
       style="background: radial-gradient(circle, transparent 42%, rgba(96,165,250,0.55) 47%, rgba(37,99,235,0.95) 50%, rgba(37,99,235,0.25) 54%, transparent 60%);"
       aria-hidden="true"
     >
     </div>
     <!-- Мягкое внутреннее свечение под ободом -->
     <div
-      class="pointer-events-none absolute top-[-30%] left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full opacity-50 blur-[80px]"
+      class="cta-glow pointer-events-none absolute top-[-30%] left-1/2 h-[400px] w-[700px] rounded-full blur-[80px]"
       style="background: radial-gradient(circle, rgba(37,99,235,0.6) 0%, transparent 70%);"
       aria-hidden="true"
     >
@@ -42,3 +42,46 @@ const cta = c.cta.replace(/[«»]/g, "").trim();
     </div>
   </div>
 </section>
+
+<style>
+  /* «Дыхание» свечения — плавный fade + лёгкое масштабирование */
+  .cta-ring {
+    opacity: 0.9;
+    animation: cta-breathe-ring 7s ease-in-out infinite;
+  }
+  .cta-glow {
+    opacity: 0.5;
+    animation: cta-breathe-glow 5.5s ease-in-out infinite;
+  }
+
+  @keyframes cta-breathe-ring {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: translateX(-50%) scale(0.97);
+    }
+    50% {
+      opacity: 0.95;
+      transform: translateX(-50%) scale(1.05);
+    }
+  }
+  @keyframes cta-breathe-glow {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      opacity: 0.65;
+      transform: translateX(-50%) scale(1.15);
+    }
+  }
+
+  /* Уважаем системную настройку «меньше движения» */
+  @media (prefers-reduced-motion: reduce) {
+    .cta-ring,
+    .cta-glow {
+      animation: none;
+    }
+  }
+</style>
